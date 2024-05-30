@@ -14,8 +14,28 @@ gradle-app.setting
 # Cache of project
 .gradletasknamecache
 
+# vscode
+.vscode
+
 # Eclipse Gradle plugin generated files
 # Eclipse Core
+bin
+*.launch
+.settings
+.metadata
 .project
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# environment variables
+.env
+
+# Files from Forge MDK
+forge*changelog.txt
