@@ -17,14 +17,18 @@ For this study, GPT-4V has been chosen to be incorporated into MiniRTS and Minec
 
 MiniRTS is a simplified version of the Real-Time Strategy game genre, in which players are required to analyse the current game environment through images and inform the game about the next step with textual instructions. In this study, I have adopted the MiniRTS environment proposed by H. Hu et al. [[1]] The goal of MiniRTS is to defeat the enemies in red and destroy red's base. MiniRTS provides a simple but stochastic environment, and incorporates both visual and textual information, allowing me to put GPT-4V's reasoning capabilities to the test. 
 
-Minecraft is a sandbox game, offering a vast and dynamic environment with high diversity and customisability for evaluation. Minecraft utilises visual cues in a 3D environment, players will have to identify each block and entity to progress in tasks. Moreover, it also utilises textual information such as coordinates and biome. Through experiments, it enables me to measure to what extent GPT-4V generates accurate and succient inforamtion.      
+Minecraft is a sandbox game, offering a vast and dynamic environment with high diversity and customisability for evaluation. Minecraft utilises visual cues in a 3D environment, players will have to identify each block and entity to progress in tasks. Moreover, it also utilises textual information such as coordinates and biome. Through experiments, I can measure to what extent GPT-4V generates accurate and succinct information.      
 
 ## Implementation
-There are 2 types of prompts in MiniRTS: Visual and Textual. When a MiniRTS games starts, it randomly populates the environment with resources and the location of the oppponent's base. An image representing the current game state is captured and is combined with texts illustrating the objective, game specifications and 10 example commands. These components are merged into a payload and are sent to GPT-4V as a query. The response acts as a command that is passed into a command-enforcing algorithm proposed by [[2]], which is later fed back into the execitor to update the game state. The purpose of including example commands is the use of In-Context Learning, which gives the model so insights that helps the model to return responses more accurately, or in my case, in the desired format.
+There are 2 types of prompts in MiniRTS: Visual and Textual. When a MiniRTS game starts, it randomly populates the environment with resources and the location of the opponent's base. An image representing the current game state is captured and combined with texts illustrating the objective, game specifications and 10 example commands. These components are merged into a payload and are sent to GPT-4V as a query. The response acts as a command that is passed into a command-enforcing algorithm proposed by [[2]], which is later fed back into the executor to update the game state. The purpose of including example commands is the use of In-Context Learning, which gives the model insights that help the model to return responses more accurately, or in my case, in the desired format.
 
-There are also 2 types of prompts in Minecraft. The model is asked a question regarding the game and is asked to return suggestions or advice to assist the player. Upon querying, the player's perspective is captured as an image while the question and the player's inventory is captured as texts. These prompts made up the prompt and is sent to GPT-4V for the requested type of response. 
+<img src="minirts_instruction_flow.jpg" width=80%>
 
-The communication between the games and GPT-4V are made possible with the GPT-4 API. Specifically for Minecraft, as there is no API support for Java, a Minecraft mod with TCP sockets between the Java client (Minecraft) and the Python server is used. 
+There are also 2 types of prompts in Minecraft. The model is asked questions regarding the game and to return suggestions or advice to assist the player. Upon querying, the player's perspective is captured as an image while the question and the player's inventory are captured as texts. These prompts make up the prompt and are sent to GPT-4V for the requested type of response. 
+
+<img src="minecraft_instruction_flow.jpg" width=80%>
+
+The communication between the games and GPT-4V is made possible with the GPT-4 API. Specifically for Minecraft, as there is no API support for Java, a Minecraft mod with TCP sockets between the Java client (Minecraft) and the Python server is used. 
 
 
 [1]:https://arxiv.org/abs/1906.00744
