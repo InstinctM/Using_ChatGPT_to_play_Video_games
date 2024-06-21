@@ -65,6 +65,36 @@ The most frequently used words across the 30 games are as follows:
 | one        | 261       | 2.387               |
 | building   | 256       | 2.341               |
 
+A summary of GPT-4V's performance in Minecraft tasks is as follows:
+<ol>
+  <li>Crafting recipe: 2/3 of responses are correct while the remaining yields a wrong crafting recipe.</li>
+  <li>Non-existing items: 3/3 of responses correctly stated that there are no such tools in the game.</li>
+  <li>Mob identification: 1/3 of responses correctly identify all mobs while the remaining have wrong classifications.</li>
+  <li>Resources management: 3/3 of responses gave the player a detailed list of items that they should gather before an adventure.</li>
+  <li>Step-by-step guide: 3/3 of responses responded with a step-by-step guide to obtain elytra, with 1/3 of responses misinterpreting the player's location in the end.</li>
+  <li>Suggestions for random events: 0/3 of responses can produce a list of suggestions for obtaining a specific enchantment in Minecraft.</li>
+  <li>Navigating through terrain: 2/3 of responses fail to generate a precise guide to assist the player in navigating out of the nether. 1/3 of the responses did not give an effective response. </li>
+  <li>Navigating through obstacles: 3/3 of responses generated a step-by-step guide to deal with each obstacle based on priorities.</li>
+</ol>
+
+Rating from 10 respondents before prompt refinement:
+| Task Description                  | Rating |
+|-----------------------------------|--------|
+| Resources management              | 3.6    |
+| Step-by-step guide                | 3.3    |
+| Suggestions for random event      | 3.3    |
+| Navigating through terrain        | 3.4    |
+| Navigating through obstacles      | 4.1    |
+
+Rating from 10 different respondents before prompt refinement:
+| Task Description                  | Rating |
+|-----------------------------------|--------|
+| Resources management              | 4.1    |
+| Step-by-step guide                | 3.6    |
+| Suggestions for random event      | 3.6    |
+| Navigating through terrain        | 4.1    |
+| Navigating through obstacles      | 4.5    |
+
 
 [1]:https://arxiv.org/abs/1906.00744
 [2]:https://proceedings.neurips.cc/paper_files/paper/2022/file/318f3ae8be3c97cb7555e1c932f472a1-Paper-Conference.pdf
